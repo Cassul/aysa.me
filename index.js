@@ -7,8 +7,9 @@ app.get('/', function(req, res) {
 	res.send(`
       <h1>Jason is the best boyfriend!</h1>
 		`)
-} )
+} );
+app.use(require('./jason'));
 
 var server = app.listen(app.get('port'), function() {
 	console.log('listening to port ' + app.get('port'))
-})
+});
