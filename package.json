@@ -2,14 +2,16 @@
   "name": "aysa",
   "version": "1.0.0",
   "description": "my personal website",
-  "main": "index.js",
+  "main": "app/index.js",
   "scripts": {
     "test": "test",
-    "start": "node server.js"
+    "start": "nodemon -e css,js,html --watch app app/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "nodemon": "^1.11.0",
+    "reload": "^2.2.1"
   }
 }

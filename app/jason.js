@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.get('/jason', function(req, res) {
 	res.send(`
-      <h1>Jason is the sexiest and sweetiest man!</h1>
+      <h1>Jason is the best man!</h1>
 		`)
 });
 
