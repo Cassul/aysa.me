@@ -1,10 +1,14 @@
 var express = require('express');
 var app = express();
+var reload = require('reload');
 
 
 app.set('port', process.env.PORT || 3000);
+app.set('view engine', 'ejs');
+app.set('views', 'app/views');
 
 app.get('/', function(req, res) {
+    /*res.render('index');*/
 	res.send(`
 	    <!DOCTYPE html>
         <html lang="en">
@@ -17,8 +21,17 @@ app.get('/', function(req, res) {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         </head>
         <body>
-        <h1>Jason is the best!</h1>
+        <h1>Aysa Matueva</h1>
+        <p>Contact   details <br/>
+            Phone   number:   0401653651 <br/>
+            E-mail:   aysa@matueva.com <br/>
+            Personal   website:      aysamatueva.com <br/>
+            Linkedin   profile:    https://www.linkedin.com/in/aysamatueva <br/>
+            Facebook   profile:    https://www.facebook.com/aysa.matueva
+        </p>
         <img src='1.jpg'>
+
+        <script src="/reload/reload.js"></script>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -36,3 +49,5 @@ app.use(require('./jason'));
 var server = app.listen(app.get('port'), function() {
 	console.log('listening to port ' + app.get('port'))
 });
+
+reload(app);
