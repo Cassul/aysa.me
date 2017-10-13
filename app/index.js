@@ -18,10 +18,10 @@ app.get('/', function(req, res) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" src="/www/test_project/public/logo.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
-    <title>Justified Nav Template for Bootstrap</title>
+    <title></title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -76,7 +76,6 @@ app.get('/', function(req, res) {
         <h1>Welcome to a wannabe web-developer's blog! My name is </h1>
         <h1>Aysa Matueva</h1>
         <p>Contact   details <br/>
-            Phone   number:   0401653651 <br/>
             E-mail:   aysa@matueva.com <br/>
             Personal   website:      aysamatueva.com <br/> 
             Linkedin   profile:    https://www.linkedin.com/in/aysamatueva <br/>
@@ -107,9 +106,7 @@ app.get('/', function(req, res) {
       </div>
 
       <!-- Site footer -->
-      <footer class="footer">
-        <p>&copy; glaza boyatsya - ruki delayut</p><a href="index.html"><img src="/www/test_project/public/logo.png" alt="Me"></a>
-      </footer>
+      <footer class="footer"></footer>
 
     </div> <!-- /container -->
   
