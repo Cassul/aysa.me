@@ -101,7 +101,7 @@ app.get('/', function(req, res) {
           <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-lg-4">
-          <h2><a href='http://aysamatueva.com/resources'>Sources</a></h2>
+          <h2><a href='/resources'>Sources</a></h2>
           <p>Link and reviews to all sources I use</p>
           <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
         </div>
@@ -141,6 +141,6 @@ app.use(express.static('public'));
 var server = app.listen(app.get('port'), function() {
 	console.log('listening to port ' + app.get('port'))
 });
-//it's done only to log on shell what port it listens to
+//it's done only to log on shell what port it listens toç
 
 reload(app);
