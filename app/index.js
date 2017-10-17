@@ -8,6 +8,7 @@ var reload = require('reload');
 app.set('port', process.env.PORT || 3000);
 //sets to listen to a port
 app.set('view engine', 'pug');
+app.set('views', 'app/views');
 //sets template engine to pug
 //by default templates are located in a folder views
 app.get('/resources', function(req, res) {
