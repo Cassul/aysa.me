@@ -34,7 +34,7 @@ mongoose.connect('mongodb://localhost/test_project', {
 else {var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
-    'mongodb://localhost/HelloMongoose';
+    'mongodb://heroku_ggck1lhb:t96sat2q3aufmpc7sh8th2r600@ds237815.mlab.com:37815/heroku_ggck1lhb';
 
     // The http server will listen to an appropriate port, or default to
     // port 5000.
