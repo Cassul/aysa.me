@@ -21,11 +21,10 @@ var server = app.listen(app.get('port'), function() {
 //it's done only to log on shell what port it listens toç
 
 // Check if we are running on localhost. If not then implement fix for Heroku
-if (server.address().address == '::') {
+if (server.address().port == 3000) {
   app.set('views','./views');
 }
 else {
-  console.dir(server.address().address);
   app.set('views', 'app/views');
 }
 //sets template engine to pug
