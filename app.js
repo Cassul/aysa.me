@@ -15,6 +15,10 @@ app.set('port', process.env.PORT || 3000);
 //sets to listen to a port
 app.set('view engine', 'pug');
 
+var routes = require('./routes/index');
+app.use('/', routes);
+//set routes
+
 var server = app.listen(app.get('port'), function() {
   console.log('listening to port ' + app.get('port'));
 });
@@ -25,45 +29,10 @@ if (server.address().port == 3000) {
   app.set('views','./views');
 }
 else {
-  app.set('views', 'app/views');
+  app.set('views', './views');
 }
 //sets template engine to pug
 //by default templates are located in a folder views
-app.get('/resources', function(req, res) {
-    res.render('resources');
-});
-
-app.get('/language', function(req, res) {
-    res.render('language');
-});
-
-
-
-app.get('/', function(req, res) {
-    //respond on request. set the root route
-  const lang = req.cookies.language; 
-  if (lang == 'english') {
-    console.dir('redirected to english root');
-    res.render('main');
-  }
-  if (lang == 'russian') {
-    res.redirect('/russian');
-  }
-  else 
-    res.redirect('/language');
-});
-
-app.post('/language', (req, res) => {
-  console.dir(req.body.language);
-  res.cookie('language', req.body.language); //set cookie's name and value
-  const language = req.body.language; 
-  if (language == 'english') {
-    res.redirect('/');
-    console.dir(req.cookies.language);
-  } else {
-    res.redirect('/russian');
-  }
-});
 
 app.use(express.static('public'));
 //sets what sources it can use in what folder
