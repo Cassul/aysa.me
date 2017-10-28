@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const User = require('../models/user');
 
 router.get('/resources', function(req, res) {
     res.render('resources');
@@ -7,6 +8,34 @@ router.get('/resources', function(req, res) {
 
 router.get('/language', function(req, res) {
     res.render('language');
+});
+
+router.get('/subscribe', (req, res, next) => {
+  res.render('subscribe');
+});
+
+router.post('/subscribe', function(req, res) {
+	if (req.body.email && req.body.name) {
+      //create object with form input
+      const userData = {
+      	email: req.body.email,
+      	name: req.body.name
+      };
+      //use schema's create method to insert object into DB
+      User.create(userData, (error, user) => {
+        if (error) {
+        	return next(error);
+        }
+        else {
+        	return res.redirect('/');
+        }
+      });
+	}
+	else {
+		var err = new Error('All fields required.');
+		err.status = 400;
+		return next(err);
+	}
 });
 
 router.post('/language', (req, res) => {

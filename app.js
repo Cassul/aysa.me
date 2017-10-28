@@ -7,6 +7,14 @@ const bodyParser = require('body-parser');
 //to get data from users
 const cookieParser = require('cookie-parser');
 //to use cookies. require installation with npm
+const mongoose = require('mongoose');
+//to install mongoose - ODM(object data modeling)
+
+mongoose.connect('mongodb://localhost/test_project', {
+	useMongoClient: true,
+});
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error'));
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cookieParser());
@@ -33,6 +41,23 @@ else {
 }
 //sets template engine to pug
 //by default templates are located in a folder views
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('File Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handler
+// define as the last app.use callback
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
+});
 
 app.use(express.static('public'));
 //sets what sources it can use in what folder
