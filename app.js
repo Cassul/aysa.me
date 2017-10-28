@@ -10,11 +10,6 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 //to install mongoose - ODM(object data modeling)
 
-mongoose.connect('mongodb://localhost/test_project', {
-	useMongoClient: true,
-});
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error'));
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cookieParser());
@@ -31,6 +26,32 @@ var server = app.listen(app.get('port'), function() {
   console.log('listening to port ' + app.get('port'));
 });
 //it's done only to log on shell what port it listens toç
+
+if (server.address().port == 3000) {
+mongoose.connect('mongodb://localhost/test_project', {
+	useMongoClient: true,
+});}
+else {var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://localhost/HelloMongoose';
+
+    // The http server will listen to an appropriate port, or default to
+    // port 5000.
+    var theport = process.env.PORT || 5000;
+
+    // Makes connection asynchronously.  Mongoose will queue up database
+    // operations and release them when the connection is complete.
+    mongoose.connect(uristring, function (err, res) {
+      if (err) {
+      console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+      } else {
+      console.log ('Succeeded connected to: ' + uristring);
+      }
+    });
+}
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error'));
 
 // Check if we are running on localhost. If not then implement fix for Heroku
 if (server.address().port == 3000) {

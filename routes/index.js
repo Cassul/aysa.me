@@ -14,7 +14,7 @@ router.get('/subscribe', (req, res, next) => {
   res.render('subscribe');
 });
 
-router.post('/subscribe', function(req, res) {
+router.post('/subscribe', function(req, res, next) {
 	if (req.body.email && req.body.name) {
       //create object with form input
       const userData = {
