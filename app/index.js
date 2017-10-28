@@ -14,7 +14,20 @@ app.use(cookieParser());
 app.set('port', process.env.PORT || 3000);
 //sets to listen to a port
 app.set('view engine', 'pug');
-app.set('views', 'app/views');
+
+var server = app.listen(app.get('port'), function() {
+  console.log('listening to port ' + app.get('port'));
+});
+//it's done only to log on shell what port it listens toç
+
+// Check if we are running on localhost. If not then implement fix for Heroku
+if (server.address().address == '::') {
+  app.set('views','./views');
+}
+else {
+  console.dir(server.address().address);
+  app.set('views', 'app/views');
+}
 //sets template engine to pug
 //by default templates are located in a folder views
 app.get('/resources', function(req, res) {
@@ -57,9 +70,6 @@ app.use(express.static('public'));
 //sets what sources it can use in what folder
 //app.use(require('./jason'));
 
-var server = app.listen(app.get('port'), function() {
-	console.log('listening to port ' + app.get('port'));
-});
-//it's done only to log on shell what port it listens toç
+
 
 reload(app);
