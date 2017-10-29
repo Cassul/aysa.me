@@ -13,10 +13,10 @@ block content
     p(class='lead') If you want to start learning coding from scratch but don't know where to start - you're in the right place!  
         Also here you may find some information about some other stuff - like coffee and movies    
     p Please choose your language
-    p Pozhalujsta vyberite yazik
+    p Пожалуйста, выберите язык
     form(action='/language', method='post')
         input(type='radio', name='language', value='english') 
-        | English
+        |   English  
         input(type='radio', name='language', value='russian') 
-        | Russian
-        button(type='submit') Submit
+        |   Русский  
+        button(type='submit' class='btn btn-lg btn-primary') Submit

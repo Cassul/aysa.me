@@ -95,6 +95,7 @@ button {width: auto; overflow: visible;}
 
 
 body {
+	background-image: url(/cranes.jpg);
 	background: #495B95 url(../../images/background_buildings.png) repeat-x;
 	font: Normal 100% 'Droid Serif', serif;
 	width: 100%;

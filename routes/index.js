@@ -14,6 +14,10 @@ router.get('/subscribe', (req, res, next) => {
   res.render('subscribe');
 });
 
+router.get('/russian', function(req, res) {
+    res.render('russian');
+});
+
 router.post('/subscribe', function(req, res, next) {
 	if (req.body.email && req.body.name) {
       //create object with form input
