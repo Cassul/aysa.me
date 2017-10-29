@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 //to use cookies. require installation with npm
 const mongoose = require('mongoose');
 //to install mongoose - ODM(object data modeling)
-
+const path = require('path');
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cookieParser());
@@ -22,11 +22,16 @@ var routes = require('./routes/index');
 app.use('/', routes);
 //set routes
 
+app.use(express.static(path.join(__dirname, 'public')));
+//sets what sources it can use in what folder
+//app.use(require('./jason'));
+
 var server = app.listen(app.get('port'), function() {
   console.log('listening to port ' + app.get('port'));
 });
 //it's done only to log on shell what port it listens toç
 
+//I'm using mongolab addon for heroku, I had to find MONGOLAB_URI through shell to connect my application to mongodb
 if (server.address().port == 3000) {
 mongoose.connect('mongodb://localhost/test_project', {
 	useMongoClient: true,
@@ -35,6 +40,7 @@ else {var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
     'mongodb://heroku_ggck1lhb:t96sat2q3aufmpc7sh8th2r600@ds237815.mlab.com:37815/heroku_ggck1lhb';
+    //That is MONGOLAB_URI
 
     // The http server will listen to an appropriate port, or default to
     // port 5000.
@@ -52,6 +58,7 @@ else {var uristring =
 }
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
+//to work with mongo data go to mlab.com
 
 // Check if we are running on localhost. If not then implement fix for Heroku
 if (server.address().port == 3000) {
@@ -80,9 +87,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.use(express.static('public'));
-//sets what sources it can use in what folder
-//app.use(require('./jason'));
+
 
 
 
