@@ -10,12 +10,28 @@ router.get('/language', function(req, res) {
     res.render('language');
 });
 
+router.get('/stuff', function(req, res) {
+    res.render('stuff');
+});
+
+router.get('/myprogress', function(req, res) {
+    res.render('myprogress');
+});
+
 router.get('/subscribe', (req, res, next) => {
   res.render('subscribe');
 });
 
 router.get('/contact', (req, res, next) => {
   res.render('contact');
+});
+
+router.get('/fresh', (req, res, next) => {
+  res.render('fresh');
+});
+
+router.get('/projects', (req, res, next) => {
+  res.render('projects');
 });
 
 router.get('/russian', function(req, res) {
