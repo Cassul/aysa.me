@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var server = app.listen(app.get('port'), function() {
   console.log('listening to port ' + app.get('port'));
-});
+
 //it's done only to log on shell what port it listens toç
 
 //I'm using mongolab addon for heroku, I had to find MONGOLAB_URI through shell to connect my application to mongodb
@@ -69,7 +69,7 @@ else {
 }
 //sets template engine to pug
 //by default templates are located in a folder views
-
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('File Not Found');

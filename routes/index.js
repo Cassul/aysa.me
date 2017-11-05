@@ -14,6 +14,10 @@ router.get('/subscribe', (req, res, next) => {
   res.render('subscribe');
 });
 
+router.get('/contact', (req, res, next) => {
+  res.render('contact');
+});
+
 router.get('/russian', function(req, res) {
     res.render('russian');
 });
