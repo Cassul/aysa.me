@@ -10,6 +10,10 @@ router.get('/language', function(req, res) {
     res.render('language');
 });
 
+router.get('/freshEng', function(req, res) {
+    res.render('freshEng');
+});
+
 router.get('/stuff', function(req, res) {
     res.render('stuff');
 });
@@ -56,7 +60,7 @@ router.post('/subscribe', function(req, res, next) {
       });
 	}
 	else {
-		var err = new Error('All fields required.');
+	  const err = new Error('All fields required.');
 		err.status = 400;
 		return next(err);
 	}

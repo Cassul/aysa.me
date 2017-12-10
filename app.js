@@ -18,7 +18,7 @@ app.set('port', process.env.PORT || 3000);
 //sets to listen to a port
 app.set('view engine', 'pug');
 
-var routes = require('./routes/index');
+const routes = require('./routes/index');
 app.use('/', routes);
 //set routes
 
@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //sets what sources it can use in what folder
 //app.use(require('./jason'));
 
-var server = app.listen(app.get('port'), function() {
+const server = app.listen(app.get('port'), function() {
   console.log('listening to port ' + app.get('port'));
 
 //it's done only to log on shell what port it listens toç
@@ -36,7 +36,7 @@ if (server.address().port == 3000) {
 mongoose.connect('mongodb://localhost/test_project', {
 	useMongoClient: true,
 });}
-else {var uristring =
+else {const uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
     'mongodb://heroku_ggck1lhb:t96sat2q3aufmpc7sh8th2r600@ds237815.mlab.com:37815/heroku_ggck1lhb';
@@ -44,7 +44,7 @@ else {var uristring =
 
     // The http server will listen to an appropriate port, or default to
     // port 5000.
-    var theport = process.env.PORT || 5000;
+    const theport = process.env.PORT || 5000;
 
     // Makes connection asynchronously.  Mongoose will queue up database
     // operations and release them when the connection is complete.
@@ -72,7 +72,7 @@ else {
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('File Not Found');
+  const err = new Error('File Not Found');
   err.status = 404;
   next(err);
 });
