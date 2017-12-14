@@ -42,6 +42,10 @@ router.get('/russian', function(req, res) {
     res.render('russian');
 });
 
+router.get('/tictac', function(req, res) {
+    res.render('index');
+});
+
 router.post('/subscribe', function(req, res, next) {
 	if (req.body.email && req.body.name) {
       //create object with form input
