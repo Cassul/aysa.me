@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
 //store express application in this variable
-const reload = require('reload');
-//to reload the page after updating
 const bodyParser = require('body-parser');
 //to get data from users
 const cookieParser = require('cookie-parser');
@@ -10,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 //to install mongoose - ODM(object data modeling)
 const path = require('path');
+const ejs = require('ejs');
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cookieParser());
@@ -86,9 +85,3 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-
-
-
-
-reload(app);

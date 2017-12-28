@@ -1,5 +1,8 @@
 extends layout
 block content
+  script(type='text/javascript').
+    console.log('hey');
+    console.log(res.locals.route);
   p In a right order):
   br
   a(class="text-success" href="https://www.ebay.com/") ebay.com
@@ -25,3 +28,4 @@ block content
   a(class="text-success" href="") 
   a(class="text-success" href="") 
   a(class="text-success" href="") 
+  script var url= url

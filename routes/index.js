@@ -1,9 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const ejs = require('ejs');
 
 router.get('/resources', function(req, res) {
-    res.render('resources');
+    var route = req.originalUrl;
+    console.log(route);
+    res.render('resources', {
+      url: route
+    });
 });
 
 router.get('/language', function(req, res) {
