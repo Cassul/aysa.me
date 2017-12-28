@@ -10,7 +10,8 @@ console.log('hey');
 window.onload = function () {
   let facebook = document.getElementById('facebook');
   facebook.setAttribute('data-href', document.URL);
-  let route = document.URL.slice(6);
-  let address = 'app_id=&amp;container_width=44&amp;href=http%3A%2F%2F' + route + '%2F&amp;layout=button_count&amp;locale=ru_RU&amp;mobile_iframe=true&amp;sdk=joey&amp;size=small';
-  facebook.setAttribute('fb-iframe-plugin-query', address);
+  let route = document.URL.slice(7);
+  route = encodeURIComponent(route);
+  let address = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F' + route + '&amp;src=sdkpreparse';
+  facebook.setAttribute('href', address);
 };
