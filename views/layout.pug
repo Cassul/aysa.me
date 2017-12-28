@@ -20,7 +20,6 @@
 
   <body>
   <div id="fb-root"></div>
-    <script src="facebook.js"></script>
     <div class="container">
 
       <div class="masthead">
@@ -78,11 +77,9 @@
       </div>
 
       <!-- Site footer -->
-      <script type="text/javascript"> var url = encodeURIComponent(myurl.slice(7));
-      var hreff="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F" + url + "%2F&amp;src=sdkpreparse";
-    </script>
+
       <footer class="footer">
-        <div id="fb" class="fb-share-button" data-href=myurl data-layout="button_count" data-size="small" data-mobile-iframe="true"><a id="facebook" class="fb-xfbml-parse-ignore" target="_blank" href=hreff>Share</a></div>
+        <div id="fb" class="fb-share-button" data-href="#{myurl}" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a id="facebook" class="fb-xfbml-parse-ignore" target="_blank" href="#{hreff}">Share</a></div>
       </footer>
 
     </div> <!-- /container -->

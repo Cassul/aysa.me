@@ -12,6 +12,10 @@ const ejs = require('ejs');
 
 app.use(function(req, res, next){
   res.locals.myurl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  var url2 = req.protocol + '://' + req.get('host') + req.originalUrl;
+  var url = encodeURIComponent(url2.slice(7));
+  var hreff="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F" + url + "%2F&amp;src=sdkpreparse";
+  res.locals.hreff = hreff;
   next();
 });
 

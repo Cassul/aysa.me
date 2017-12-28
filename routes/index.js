@@ -11,6 +11,7 @@ router.get('/resources', function(req, res) {
     });
 });
 
+
 router.get('/language', function(req, res) {
     res.render('language');
 });
