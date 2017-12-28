@@ -4,7 +4,7 @@ const User = require('../models/user');
 const ejs = require('ejs');
 
 router.get('/resources', function(req, res) {
-    var route = req.originalUrl;
+    var route = req.protocol + '://' + req.get('host') + req.originalUrl;
     console.log(route);
     res.render('resources', {
       url: route

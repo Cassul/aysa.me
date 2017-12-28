@@ -10,6 +10,11 @@ const mongoose = require('mongoose');
 const path = require('path');
 const ejs = require('ejs');
 
+app.use(function(req, res, next){
+  res.locals.myurl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  next();
+});
+
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cookieParser());
 //that is the way to use any middleware 
@@ -20,6 +25,7 @@ app.set('view engine', 'pug');
 const routes = require('./routes/index');
 app.use('/', routes);
 //set routes
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 //sets what sources it can use in what folder

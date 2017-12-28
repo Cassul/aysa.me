@@ -8,10 +8,12 @@
 console.log('hey');
 
 window.onload = function () {
+  let fb = document.getElementById('fb');
+  fb.setAttribute('data-href', document.URL);
   let facebook = document.getElementById('facebook');
-  facebook.setAttribute('data-href', document.URL);
   let route = document.URL.slice(7);
   route = encodeURIComponent(route);
   let address = 'https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F' + route + '&amp;src=sdkpreparse';
-  facebook.setAttribute('href', address);
+  facebook.setAttribute('plugin ', address);
 };
+
