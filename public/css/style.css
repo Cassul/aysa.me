@@ -1,9 +1,8 @@
 body {
-  background-image: url("../confectionary.png");
+  background-image: url("../grey.png");
 }
 
 .jumbotron {
-	background-image: url("../swirl.png");
 	padding-top: 25px;
 	padding-bottom: 25px;
 	padding-right: 25px;
@@ -11,7 +10,6 @@ body {
 }
 
 .navbar {
-	background-image: url("../swirl.png");
 }
 
 .langWrap {

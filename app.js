@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const ejs = require('ejs');
 
+//that the way to use middleware to pass variables to pug
 app.use(function(req, res, next){
   res.locals.myurl = req.protocol + '://' + req.get('host') + req.originalUrl;
   var url2 = req.protocol + '://' + req.get('host') + req.originalUrl;
